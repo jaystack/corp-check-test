@@ -1,0 +1,25 @@
+{
+  "name": "corp-check-test",
+  "version": "1.0.0",
+  "description": "e2e tests for corp-check",
+  "main": "lib/test",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaystack/corp-check-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaystack/corp-check-test/issues"
+  },
+  "homepage": "https://github.com/jaystack/corp-check-test#readme",
+  "devDependencies": {
+    "jest": "^21.2.1",
+    "jest-junit": "^3.1.0",
+    "ts-jest": "^21.1.4"
+  }
+}
