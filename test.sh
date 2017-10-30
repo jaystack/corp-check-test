@@ -13,6 +13,11 @@ sed "s/%TAG%/$TAG/g" docker-compose.tpl.yml > docker-compose.yml
 echo "docker-compose file:"
 cat docker-compose.yml
 
+# DOCKER LOGIN
+echo "DOCKER LOGIN"
+DOCKER_LOGIN=$(aws ecr get-login --no-include-email --region eu-central-1)
+$DOCKER_LOGIN
+
 # RUN CONTAINERS
 echo "RUN CONTAINERS"
-docker-compose run test npm start
+docker-compose run --rm test npm start

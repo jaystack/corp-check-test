@@ -12,6 +12,7 @@ ADD test /app/test
 ADD registry /app/registry
 ADD registry/_npmrc /root/.npmrc
 
+ENV NPM_CONFIG_REGISTRY=http://registry
 RUN sh registry/init.sh
 
 CMD npm start

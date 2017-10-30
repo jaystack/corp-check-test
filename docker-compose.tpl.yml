@@ -32,7 +32,7 @@ services:
       - worker
   worker:
     container_name: worker
-    image: 856324650258.dkr.ecr.eu-central-1.amazonaws.com/corp-check-worker:%TAG%
+    image: 856324650258.dkr.ecr.eu-central-1.amazonaws.com/corp-check:%TAG%
     environment:
       - RABBIT_ENDPOINT=amqp://rabbit
       - API_URL=http://rest
