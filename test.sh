@@ -15,8 +15,4 @@ cat docker-compose.yml
 
 # RUN CONTAINERS
 echo "RUN CONTAINERS"
-docker-compose up -d
-
-# REMOVE CONTAINERS
-echo "REMOVE CONTAINERS"
-docker-compose down -v --rmi all
+docker-compose run test npm start
