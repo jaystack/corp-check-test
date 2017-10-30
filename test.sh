@@ -1,4 +1,5 @@
 #!/bin/bash
+# Ez lesz maga a jenkins script
 
 ENV="dev"
 echo "ENV: $ENV"
@@ -15,10 +16,6 @@ cat docker-compose.yml
 # RUN CONTAINERS
 echo "RUN CONTAINERS"
 docker-compose up -d
-
-# RUN TESTS
-echo "RUN TESTS"
-npm start
 
 # REMOVE CONTAINERS
 echo "REMOVE CONTAINERS"

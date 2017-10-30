@@ -1,6 +1,0 @@
-<testsuites name="jest tests">
-  <testsuite name="first" tests="1" errors="0" failures="0" skipped="0" timestamp="2017-10-27T11:42:32" time="0.915">
-    <testcase classname="first foo" name="first foo" time="0.001">
-    </testcase>
-  </testsuite>
-</testsuites>

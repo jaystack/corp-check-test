@@ -9,5 +9,8 @@ RUN npm install
 
 ADD tsconfig.json /app/tsconfig.json
 ADD test /app/test
+ADD registry /app/registry
 
-CMD sh test.sh
+RUN sh registry/init.sh
+
+CMD npm start

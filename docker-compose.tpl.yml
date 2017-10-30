@@ -1,15 +1,24 @@
 version: '3'
 services:
   rabbit:
+    container_name: rabbit
     image: rabbitmq:3-management
     ports:
       - 5672:5672
       - 15672:15672
   mongo:
+    container_name: mongo
     image: mongo:latest
     ports:
       - 27017:27017
+  registry:
+    container_name: registry
+    image: burkostya/npm-registry:latest
+    ports:
+      - 5984:5984
+      - 80:80
   rest:
+    container_name: rest
     image: 856324650258.dkr.ecr.eu-central-1.amazonaws.com/corp-check-rest:%TAG%
     ports:
       - 3001:3000
@@ -17,13 +26,27 @@ services:
       - RABBITMQ_CONNECTION_URL=amqp://rabbit
       - MONGO_CONNECTION_URL=mongodb://mongo:27017
     command: npm run start:f
+    depends_on:
+      - rabbit
+      - mongo
+      - worker
   worker:
+    container_name: worker
     image: 856324650258.dkr.ecr.eu-central-1.amazonaws.com/corp-check-worker:%TAG%
     environment:
       - RABBIT_ENDPOINT=amqp://rabbit
       - API_URL=http://rest
+      - NPM_CONFIG_REGISTRY=http://localhost
+      - NPM_COUCHDB_ENDPOINT=http://localhost
+      - NPM_SEARCH_ENDPOINT=http://localhost/-/v1/search
+    depends_on:
+      - rabbit
+      - registry
   test:
+    container_name: test
     image: corp-check-test
     build: .
     environment:
       - API_URL:http://rest
+    depends_on:
+      - registry
