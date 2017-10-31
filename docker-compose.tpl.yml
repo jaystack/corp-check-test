@@ -38,7 +38,7 @@ services:
       - API_URL=http://rest
       - NPM_CONFIG_REGISTRY=http://registry
       - NPM_COUCHDB_ENDPOINT=http://registry
-      - NPM_SEARCH_ENDPOINT=http://registry/-/v1/search
+      - NPM_SEARCH_ENDPOINT=http://test/-/v1/search
     depends_on:
       - rabbit
       - registry
@@ -46,6 +46,8 @@ services:
     container_name: corp-check-e2e-test
     image: corp-check-test
     build: .
+    ports:
+      - 3002:3002
     environment:
       - NPM_CONFIG_REGISTRY=http://registry
       - API_URL:http://rest
