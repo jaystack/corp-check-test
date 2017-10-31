@@ -25,6 +25,7 @@ services:
     environment:
       - RABBITMQ_CONNECTION_URL=amqp://rabbit
       - MONGO_CONNECTION_URL=mongodb://mongo:27017
+      - NPM_REGISTRY_URL=http://registry
     command: npm run start:f
     depends_on:
       - rabbit
