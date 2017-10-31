@@ -27,7 +27,7 @@ docker-compose build
 
 # RUN CONTAINERS
 echo "RUN CONTAINERS"
-docker-compose run --rm test npm start
+docker-compose run test
 
 # CLEAR CONTAINERS
 echo "CLEAR CONTAINERS"
