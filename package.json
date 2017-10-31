@@ -4,7 +4,8 @@
   "description": "e2e tests for corp-check",
   "main": "lib/test",
   "scripts": {
-    "start": "jest"
+    "init": "sh registry/init.sh",
+    "start": "npm run init && jest"
   },
   "repository": {
     "type": "git",
@@ -43,5 +44,8 @@
     ],
     "testResultsProcessor": "jest-junit",
     "testEnvironment": "node"
+  },
+  "dependencies": {
+    "user": "0.0.0"
   }
 }

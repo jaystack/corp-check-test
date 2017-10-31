@@ -2,7 +2,9 @@
 
 CWD=$(dirname $0)
 
-npm adduser <<- EOF
+echo "NPM_CONFIG_REGISTRY: $NPM_CONFIG_REGISTRY"
+
+npm adduser <<EOF
 test
 test
 test@test.test
