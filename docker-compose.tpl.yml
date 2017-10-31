@@ -1,24 +1,24 @@
 version: '3'
 services:
   rabbit:
-    container_name: rabbit
+    container_name: corp-check-e2e-rabbit
     image: rabbitmq:3-management
     ports:
       - 5672:5672
       - 15672:15672
   mongo:
-    container_name: mongo
+    container_name: corp-check-e2e-mongo
     image: mongo:latest
     ports:
       - 27017:27017
   registry:
-    container_name: registry
+    container_name: corp-check-e2e-registry
     image: burkostya/npm-registry:latest
     ports:
       - 5984:5984
       - 80:80
   rest:
-    container_name: rest
+    container_name: corp-check-e2e-rest
     image: 856324650258.dkr.ecr.eu-central-1.amazonaws.com/corp-check-rest:%TAG%
     ports:
       - 3001:3000
@@ -31,7 +31,7 @@ services:
       - mongo
       - worker
   worker:
-    container_name: worker
+    container_name: corp-check-e2e-worker
     image: 856324650258.dkr.ecr.eu-central-1.amazonaws.com/corp-check:%TAG%
     environment:
       - RABBIT_ENDPOINT=amqp://rabbit
@@ -43,7 +43,7 @@ services:
       - rabbit
       - registry
   test:
-    container_name: test
+    container_name: corp-check-e2e-test
     image: corp-check-test
     build: .
     environment:

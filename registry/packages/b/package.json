@@ -1,7 +1,7 @@
 {
-  "name": "a",
+  "name": "b",
   "version": "1.0.0",
-  "description": "Mock package: a",
+  "description": "Mock package: b",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,10 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "b": "latest",
-    "c": "latest"
-  },
-  "devDependencies": {
-    "e": "latest"
+    "d": "latest"
   }
 }

@@ -1,6 +1,10 @@
 #!/bin/bash
 # Ez lesz maga a jenkins script
 
+# CLEAR PREVIOUS CONTAINERS IF EXIST
+echo "CLEAR PREVIOUS CONTAINERS IF EXIST"
+docker-compose rm -sfv
+
 ENV="dev"
 echo "ENV: $ENV"
 
@@ -17,6 +21,14 @@ cat docker-compose.yml
 echo "DOCKER LOGIN"
 $(aws ecr get-login --no-include-email --region eu-central-1)
 
+# REBUILD TEST IMAGE
+echo "REBUILD TEST IMAGE"
+docker-compose build
+
 # RUN CONTAINERS
 echo "RUN CONTAINERS"
 docker-compose run --rm test npm start
+
+# CLEAR CONTAINERS
+echo "CLEAR CONTAINERS"
+docker-compose rm -sfv
