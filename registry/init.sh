@@ -16,9 +16,9 @@ EOF
 
 echo "PUBLISH MOCK NPM PACKAGES"
 
-npm publish "$CWD/packages/a"
-npm publish "$CWD/packages/b"
-npm publish "$CWD/packages/c"
-npm publish "$CWD/packages/d"
-npm publish "$CWD/packages/e"
-npm publish "$CWD/packages/f"
+for testCase in `ls $CWD/packages`; do
+  for package in `ls $CWD/packages/$testCase`; do
+    echo "PUBLISH $package:"
+    npm publish "$CWD/packages/$testCase/$package"
+  done
+done
