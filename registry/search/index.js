@@ -1,4 +1,4 @@
-const mockScores = require('./mock-scores.json');
+const mockScores = require('./scores.json');
 const express = require('express');
 const app = express();
 
@@ -21,4 +21,4 @@ app.get('/-/v1/search', ({ query }, res) => {
   res.json({ objects });
 });
 
-app.listen(3002);
+app.listen(3003);

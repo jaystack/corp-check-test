@@ -9,10 +9,9 @@ describe('popular-packages', () => {
   });
 
   it('are exist', async () => {
-    let result;
-    do {
-      result = await api.get('popular-packages');
-      console.log(result);
-    } while (result.length !== 3);
+    let result = [];
+    while (result.length < 3) result = await api.get('popular-packages');
+    console.log(result);
+    expect(result).toEqual([]);
   });
 });
