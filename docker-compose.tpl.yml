@@ -21,11 +21,13 @@ services:
     container_name: corp-check-e2e-rest
     image: 856324650258.dkr.ecr.eu-central-1.amazonaws.com/corp-check-rest:%TAG%
     ports:
-      - 3001:3000
+      - 3000:3000
     environment:
-      - RABBITMQ_CONNECTION_URL=amqp://rabbit
-      - MONGO_CONNECTION_URL=mongodb://mongo:27017
+      - RABBITMQ_CONNECTION_URL=http://guest:guest@rabbit:15672
+      - MONGO_CONNECTION_URL=mongodb://mongo:27017/corp-check
       - NPM_REGISTRY_URL=http://registry
+    volumes:
+      - "%AWS_CRED_SOURCE%:/root/.aws"
     command: npm run start:f
     depends_on:
       - rabbit
@@ -36,13 +38,15 @@ services:
     image: 856324650258.dkr.ecr.eu-central-1.amazonaws.com/corp-check:%TAG%
     environment:
       - RABBIT_ENDPOINT=amqp://rabbit
-      - API_URL=http://rest
+      - API_URL=http://rest:3000
       - NPM_CONFIG_REGISTRY=http://registry
       - NPM_COUCHDB_ENDPOINT=http://registry
-      - NPM_SEARCH_ENDPOINT=http://test/-/v1/search
+      - NPM_SEARCH_ENDPOINT=http://test:3002/-/v1/search
+      - QUEUE_NAME=tasks-local
     depends_on:
       - rabbit
       - registry
+    restart: on-failure
   test:
     container_name: corp-check-e2e-test
     image: corp-check-test
@@ -51,7 +55,7 @@ services:
       - 3002:3002
     environment:
       - NPM_CONFIG_REGISTRY=http://registry
-      - API_URL:http://rest
+      - API_URL=http://rest:3001
     depends_on:
       - registry
       - rest

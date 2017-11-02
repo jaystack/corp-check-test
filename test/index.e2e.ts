@@ -1,9 +1,8 @@
 import 'jest';
-
-const ENV = process.env.ENV || 'dev';
-
-const getDockerTag = env => (env === 'prod' ? 'latest' : env);
+import api from './api';
 
 describe('first', () => {
-  it('foo', () => {});
+  it('foo', async () => {
+    console.log(await api.get('popular-packages'));
+  });
 });

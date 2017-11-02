@@ -5,7 +5,9 @@
   "main": "lib/test",
   "scripts": {
     "init": "sh registry/init.sh",
-    "start": "npm run init && jest"
+    "test": "jest",
+    "test:w": "jest --watch",
+    "start": "npm run init && npm run test"
   },
   "repository": {
     "type": "git",
@@ -32,21 +34,18 @@
         "tsConfigFile": "tsconfig.json"
       }
     },
-    "moduleFileExtensions": [
-      "ts",
-      "js"
-    ],
+    "moduleFileExtensions": [ "ts", "js" ],
     "transform": {
       "^.+\\.(ts)$": "./node_modules/ts-jest/preprocessor.js"
     },
-    "testMatch": [
-      "**/test/**/*.e2e.(ts|js)"
-    ],
+    "testMatch": [ "**/test/**/*.e2e.(ts|js)" ],
     "testResultsProcessor": "jest-junit",
     "testEnvironment": "node"
   },
   "dependencies": {
     "express": "^4.16.2",
+    "request": "^2.83.0",
+    "request-promise-native": "^1.0.5",
     "user": "0.0.0"
   }
 }
