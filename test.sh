@@ -26,6 +26,7 @@ $(aws ecr get-login --no-include-email --region eu-central-1)
 if [ $1 == "watch" ]
 then
   docker-compose up -d --build rabbit mongo registry rest worker
+  NPM_CONFIG_REGISTRY=http://localhost sh registry/init.sh
   npm run test:w
 else
   # REBUILD TEST IMAGE
