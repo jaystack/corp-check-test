@@ -14,9 +14,7 @@ cat ~/.npmrc
 
 echo "PUBLISH MOCK NPM PACKAGES"
 
-for testCase in `ls $CWD/packages`; do
-  for package in `ls $CWD/packages/$testCase`; do
-    echo "PUBLISH $package:"
-    npm publish "$CWD/packages/$testCase/$package"
-  done
+for package in `ls $CWD/packages`; do
+  echo "PUBLISH $package:"
+  npm publish "$CWD/packages/$package"
 done
