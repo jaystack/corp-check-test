@@ -10,5 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {},
+  "scores": {
+    "quality": 0.4,
+    "popularity": 0.4,
+    "maintenance": 0.4
+  }
 }

@@ -20,7 +20,7 @@ services:
   registry-search:
     container_name: corp-check-e2e-registry-search
     image: corp-check-registry-search
-    build: registry/search
+    build: registry
     ports:
       - 3003:3003
   rest:

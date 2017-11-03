@@ -10,7 +10,7 @@ describe('popular-packages', () => {
     await api.post('popular-packages');
   });
 
-  it('are exist', async () => {
+  it('exist', async () => {
     let result = [];
     while (result.length < 3) result = await api.get('popular-packages');
     

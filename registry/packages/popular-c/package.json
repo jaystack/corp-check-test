@@ -10,5 +10,10 @@
   "author": "",
   "license": "GPL-2.0",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {},
+  "scores": {
+    "quality": 0.6,
+    "popularity": 0.6,
+    "maintenance": 0.6
+  }
 }
