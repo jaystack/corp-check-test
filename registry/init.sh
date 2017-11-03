@@ -7,12 +7,10 @@ CWD=$(dirname $0)
 echo "NPM_CONFIG_REGISTRY: $NPM_CONFIG_REGISTRY"
 
 echo "CREATE NPM USER"
+npm run login -- -r $NPM_CONFIG_REGISTRY
 
-npm adduser << EOF
-test
-test
-test@test.test
-EOF
+echo ".NPMRC FILE:"
+cat ~/.npmrc
 
 echo "PUBLISH MOCK NPM PACKAGES"
 

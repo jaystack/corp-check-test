@@ -5,6 +5,7 @@
   "main": "lib/test",
   "scripts": {
     "init": "sh registry/init.sh",
+    "login": "npm-cli-login npm-cli-login -u test -p test -e test@test.test",
     "test": "jest",
     "test:w": "jest --watch",
     "start": "npm run init && npm run test"
@@ -48,10 +49,9 @@
     "testEnvironment": "node"
   },
   "dependencies": {
-    "express": "^4.16.2",
     "mongodb": "^2.2.33",
+    "npm-cli-login": "0.0.10",
     "request": "^2.83.0",
-    "request-promise-native": "^1.0.5",
-    "user": "0.0.0"
+    "request-promise-native": "^1.0.5"
   }
 }

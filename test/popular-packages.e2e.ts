@@ -2,6 +2,8 @@ import 'jest';
 import api from './api';
 import { mockPopularPackageNames } from './db';
 
+jest.setTimeout(10000); // 10 second timeout
+
 describe('popular-packages', () => {
   beforeAll(async () => {
     await mockPopularPackageNames();
