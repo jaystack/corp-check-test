@@ -1,7 +1,7 @@
 {
   "name": "corp-check-test",
   "version": "1.0.0",
-  "description": "e2e tests for corp-check",
+  "description": "e2e tests for Corp-Check",
   "main": "lib/test",
   "scripts": {
     "init": "sh registry/init.sh",
