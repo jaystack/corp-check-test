@@ -5,7 +5,7 @@
 echo "CLEAR PREVIOUS CONTAINERS IF EXIST"
 docker-compose rm -sfv
 
-ENV="dev"
+ENV="prod"
 echo "ENV: $ENV"
 AWS_CRED_SOURCE="~\/\.aws"
 echo "AWS_CRED_SOURCE: $AWS_CRED_SOURCE"
@@ -22,6 +22,8 @@ cat docker-compose.yml
 # DOCKER LOGIN
 echo "DOCKER LOGIN"
 $(aws ecr get-login --no-include-email --region eu-central-1)
+
+docker-compose pull
 
 if [ $1 == "watch" ]
 then
